@@ -1,0 +1,25 @@
+Tasks for today:
+
+1. Explore Data Structures in python like list, tuple, set, dictionary and their behind the scenes implementation.
+2. Explore basic methods in each data structures like fetching items, sorting, mutability and immutability etc.
+3. I have shared a pdf of task with you. Please do it yourself. 
+Perform multiple iterations and keep in mind of time complexity and space complexity. 
+Make seperate py file for each question.  Folder structure: Day_1/1.py ..... .
+I will also share you the bitbucket repository and you have to push your changes in that repository.
+
+Lab Questions:
+
+1. Make a list of the largest or smallest N items in a collection. Eg:
+Nums = [1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2] To print largest_three =
+largest_3 = [42,37, 23]
+smallest_3 = [-4,1,2]
+Eg_2 = protfolio = [
+{'name': 'ABC', 'shares': 100, 'price': 91.1},
+{'name': 'DEF', 'shares': 50, 'price': 543.22}, {'name': 'FB', 'shares': 200, 'price': 21.09}, {'name': 'ABC', 'shares': 300, 'price': 305}
+]
+find the largest and smallest three portfolios based on their price.
+2. You will be given a roman numeral convert it to an integer.
+3. Perform calculations i.e (minimum, max, sorting etc) on a dictionary of data.
+4. Eliminate duplicate from the sequence preserving the order of the items.
+5. You have a sequence of items, and you’d like to determine the most frequently occurring items
+in the sequence.
