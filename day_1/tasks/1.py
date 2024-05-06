@@ -21,7 +21,6 @@ print('\n')
 #printing the largest three numbers in the list
 print('Largest three numbers in the list: ', largest_three)
 
-
 print('\n')
 print('Portfolio part: \n')
 #we have a list of dictionary
