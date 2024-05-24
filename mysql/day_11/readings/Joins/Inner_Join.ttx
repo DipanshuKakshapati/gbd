@@ -1,0 +1,12 @@
+--Inner Join--
+
+Description: 
+Returns records that have matching values in both tables.
+
+Example: 
+Consider two tables, Employees and Departments. 
+An inner join between these tables on the department ID will return only the employees who are assigned to departments.
+
+SELECT Employees.Name, Departments.DepartmentName
+FROM Employees
+INNER JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;

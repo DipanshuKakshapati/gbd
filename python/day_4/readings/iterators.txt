@@ -1,0 +1,84 @@
+Iterators
+1. Iterators power and control the iteration process.
+2. Iterators use exceptions for control flow.
+3. Iterators come in handy when you need to iterate over a dataset or data stream with an unknown or a huge number of items.
+4. Iterators can be created from all built-in iterable objects (like lists, tuples, dictionaries, etc.) using the iter() function. Custom iterators are typically used when you need complex iteration behavior that may include maintaining state or interacting with underlying resources.
+
+All the iterators are iterables but not all iterables are iterators.
+
+Lazy Evaluation
+Iterators in Python implement lazy evaluation. This means that they compute the next data item only when it is requested via the next() function. Unlike a list or other data structures which might load all elements into memory, an iterator does not need to hold more than one item in memory at a time if designed properly.
+
+
+Example: Processing Large Data Sets
+
+1. Using a List
+Suppose we need to process a large number of items, such as reading a large file line by line and storing each line in a list before processing. Here's what that might look like:
+
+def process_file(file_name):
+    with open(file_name, 'r') as file:
+        lines = file.readlines()  # Eagerly reads all lines into memory
+        processed_lines = [line.strip() for line in lines]  # Process all lines at once
+    return processed_lines
+
+In this scenario, readlines() loads every line of the file into memory at once. If the file is very large, this could consume a significant amount of memory and potentially lead to memory errors if the system cannot handle the load.
+
+
+2. Using an Iterator (Lazy Evaluation)
+
+# generator Example
+def process_file_iteratively(file_name):
+    with open(file_name, 'r') as file:
+        while True:
+            line = file.readline()
+            if not line:
+                break
+            yield line.strip()  # Yields one processed line at a time
+
+for processed_line in process_file_iteratively('large_file.txt'):
+    print(processed_line)  # Processes each line one at a time as it's read
+
+Here’s what’s happening in the iterator-based approach:
+
+Lazy Evaluation: The function process_file_iteratively opens the file and reads one line at a time. Each line is processed and yielded back to the caller when the for loop requests it.
+Memory Efficiency: At no point does the function store more than one line in memory (besides minimal overhead). This is in contrast to the list-based approach, where all lines are stored in memory simultaneously.
+
+
+creating custom iterators
+
+class CountDown:
+    def __init__(self, start):
+        self.current = start
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current <= 0:
+            raise StopIteration
+        else:
+            num = self.current
+            self.current -= 1
+            return num
+
+counter = CountDown(3)
+for count in counter:
+    print(count)
+
+
+
+Python Iterator Protocol
+
+Methods:
+
+1. .__iter__(): Called to initialize the iterator. It must return an iterator object.
+
+def __iter__(self):
+    return self
+
+- The only responsibility of .__iter__() is to return an iterator object. So, this method will typically just return self, which holds the current instance. Don’t forget that this instance must define a .__next__() method.
+
+
+2. .__next__(): Called to iterate over the iterator. It must return the next value in the data stream.
+
+The .__next__() method will be a bit more complex depending on what you’re trying to do with your iterator. This method must return the next item from the data stream. It should also raise a StopIteration exception when no more items are available in the data stream. This exception will make the iteration finish.

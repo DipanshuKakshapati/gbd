@@ -1,0 +1,30 @@
+--Self made questions--
+
+1. Basic CRUD Operations:
+
+    - Question: Write SQL queries to perform the following operations on a table named Employees with columns id, name, department, position, and salary:
+    - Update the salary of the employee with id = 2 to 65000.
+    - Delete the employee with id = 3.
+    - Select all employees whose salary is greater than 60000.
+    - Insert a new employee with name = 'Adam', department = 'Operations', position = 'Manager', and salary = 70000.
+
+2. Joins:
+
+    - Question: Given two tables, Orders and Customers, write a SQL query to fetch all orders along with the customer names. 
+    - The Orders table has columns order_id, customer_id, and order_date, and the Customers table has columns customer_id and customer_name.
+    - Expected Output: A result set that includes order_id, customer_name, and order_date.
+
+3. Aggregation and Grouping:
+
+    - Question: Write a SQL query to find the total salary paid for each position in the Employees table. The table has columns id, name, position, and salary.
+    - Expected Output: A result set with columns position and total_salary, where total_salary is the sum of salaries for each position.
+
+4. Subqueries:
+
+    - Question: Write a SQL query to find the names of employees who earn more than the average salary of all employees in the Employees table.
+    - Expected Output: A list of employee names.
+
+5. Database Design and Constraints:
+
+    - Question: Create a new table named Departments with the following columns: department_id (primary key), department_name (unique), and manager_id (foreign key referencing id in the Employees table). 
+    - Write the SQL query to create this table, ensuring the constraints are properly set.

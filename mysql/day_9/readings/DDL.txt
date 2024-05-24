@@ -1,0 +1,33 @@
+--DDL--
+
+Data Definition Language:
+
+A subset of SQL (Structured Query Language) used to define the structure of the database schema. 
+It's focused on defining and modifying the structure of database objects such as tables, views, indexes, etc. 
+DDL statements do not directly deal with the data itself but rather the organization and structure of the data. Common DDL statements include:
+
+1. CREATE: Used to create database objects like tables, views, indexes, etc.
+
+Creating a new table
+CREATE TABLE Employees (
+    ID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Age INT,
+    Department VARCHAR(50)
+);
+
+2. ALTER: Modifies the structure of existing database objects.
+
+Adding a new column to an existing table
+ALTER TABLE Employees
+ADD Salary DECIMAL(10, 2);
+
+3. DROP: Deletes database objects.
+
+Dropping a table
+DROP TABLE Employees;
+
+4. TRUNCATE: Removes all records from a table, but keeps its structure intact.
+
+Removing all records from a table
+TRUNCATE TABLE Employees;

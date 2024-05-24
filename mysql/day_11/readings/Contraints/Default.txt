@@ -1,0 +1,35 @@
+--DEFAULT--
+
+Used to set a default value for a column.
+
+The default value will be added to all new records, if no other value is specified.
+
+Example:
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255) DEFAULT 'Sandnes'
+);
+
+The DEFAULT constraint can also be used to insert system values, by using functions like GETDATE():
+
+CREATE TABLE Orders (
+    ID int NOT NULL,
+    OrderNumber int NOT NULL,
+    OrderDate date DEFAULT GETDATE()
+);
+
+--on alter table--
+
+ALTER TABLE Persons
+ADD CONSTRAINT df_City
+DEFAULT 'Sandnes' FOR City;
+
+--drop the default constraint--
+
+ALTER TABLE Persons
+ALTER COLUMN City DROP DEFAULT;
+

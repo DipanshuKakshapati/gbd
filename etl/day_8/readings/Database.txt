@@ -1,0 +1,94 @@
+--Database--
+
+A database is a structured collection of data that is organized and stored for easy access, retrieval, and management. 
+It typically uses a database management system (DBMS) to manage and manipulate data. 
+Databases can store various types of data, including text, numbers, images, and more. 
+They are commonly used in applications ranging from small personal projects to large enterprise systems.
+
+Example: 
+Consider a company that stores information about its employees in a database. 
+The database might have tables for employee details such as ID, name, age, department, and salary. 
+Each employee's information is stored as a record in the database.
+
+--Schema--
+
+A schema in the context of databases refers to the logical structure or blueprint that defines the organization, structure, and relationships of data within a database. 
+It provides a framework for how data is organized, including the definition of tables, columns, constraints, indexes, and relationships between tables. 
+Schemas help ensure data integrity, consistency, and facilitate efficient data management and querying.
+
+Key components and aspects of schemas:
+
+1. Tables: 
+Schemas define tables, which are the fundamental structures for organizing and storing data in a relational database. 
+Each table represents a collection of related data entities, with each row representing a single record or instance of that entity, and each column representing a specific attribute or field of the entity.
+
+-- Define the Authors table
+CREATE TABLE Authors (
+    AuthorID INT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    BirthYear INT,
+    Nationality VARCHAR(50)
+);
+
+2. Columns: Within each table, schemas define the columns, also known as fields or attributes, that represent the different properties or characteristics of the data being stored. 
+Columns have specific data types (e.g., integer, string, date) that enforce constraints on the type of data that can be stored in them.
+
+3. Constraints: 
+Schemas can include constraints to enforce rules and maintain data integrity. 
+Common constraints include primary keys, foreign keys, unique constraints, and check constraints. 
+These constraints define rules such as uniqueness, referential integrity, and data validation rules.
+
+-- Define the Books table
+CREATE TABLE Books (
+    BookID INT PRIMARY KEY,
+    Title VARCHAR(200) NOT NULL,
+    PublicationYear INT,
+    AuthorID INT,
+    Genre VARCHAR(50),
+    FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID)
+);
+
+4. Indexes: 
+Schemas can specify indexes on columns to improve the performance of queries by speeding up data retrieval. 
+Indexes provide a quick lookup mechanism for finding rows based on the values in specific columns.
+
+Example:
+-- Create the Employees table
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Department VARCHAR(50),
+    Salary DECIMAL(10, 2)
+);
+
+-- Create an index on the EmployeeID column
+CREATE INDEX idx_EmployeeID ON Employees (EmployeeID);
+
+-- Query to retrieve employee information by ID
+SELECT * FROM Employees WHERE EmployeeID = 1001;
+
+5. Relationships: 
+Schemas define relationships between tables, establishing how data in one table relates to data in another table. 
+The most common types of relationships are one-to-one, one-to-many, and many-to-many relationships, which are implemented using foreign keys.
+
+Example:
+
+a. One-to-one: Person and Passport
+b. One-to-many: Department and Employees
+c. Many-to-many: Students and Courses (Enrollment table to join)
+
+6. Views: 
+Schemas may include views, which are virtual tables generated from one or more tables or other views. 
+Views allow users to query and manipulate data without directly accessing the underlying tables, providing a simplified and customized perspective of the data.
+
+Example:
+
+CREATE VIEW view_employee_details AS
+SELECT e.employee_id, e.name, d.department_name, e.salary
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id;
+
+SELECT *
+FROM view_employee_details
+WHERE department_name = 'Marketing';

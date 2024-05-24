@@ -1,0 +1,41 @@
+-- Strings --
+
+Lab questions:
+
+1. You need to check the start or end of a string for specific text patters, 
+such as filename extensions, URL shcemes, and so on.
+ 
+Eg: ['Makerfile', 'foo.c', 'bar.py', 'spam.c', 'spam.h', 'https://www.python.org']
+
+2. You're trying to match a text pattern using regular expressions, 
+but it is identifying the longest possible matches of a patter. 
+Instead, you would like to change to find the shortest possible match.
+For regex: practise: please visit: https://regex101.com/
+
+Eg: match the strig enclosed inside " "
+'Computer says "no." ==> [no.]
+'Computer says "no." Phone says "yes." ==> ['no.', 'yes.'] (corect answer)
+                                           ['no." Phone says "yes.'] -> this is wrong
+
+3. You're trying to match a block of text using a regular expression, but you need
+the match to span multiple lines.
+
+Eg:
+'''/* this is a
+...
+multiline comment */
+'''
+
+4. Explore bytes strings, encoding and decoding of the strings. Provided a text file 
+containing some text, write a program that reads the file, converts its contents to bytes,
+and saves it as a new file. Then, read the bytes file, decode it back to a string, and print the original text.
+
+-- Self study --
+
+1. Encoding and Decoding of strings in python
+2. Bytes String vs. Text String comparison
+3. Performance Comparision of f-string formatting and % formatting
+3. Best Practices of using f-strings.
+5. Regex tips and tricks.
+
+For regex practice, please explore: https://regex101.com/

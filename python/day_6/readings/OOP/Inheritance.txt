@@ -1,0 +1,122 @@
+--Inheritance--
+
+- Inheritance is a fundamental concept in object-oriented programming (OOP) that facilitates the creation of a new class based on an existing class. 
+- The existing class is known as the superclass or base class, and the new class that derives from it is called the subclass or derived class.
+- Inheritance allows the subclass to inherit attributes (fields) and methods (functions) from the superclass.
+- Making it possible to reuse existing code and enhance or modify behaviors without altering the original class structure.
+
+Benefits:
+1. Code Reusability: Inheritance promotes the reuse of existing code. You can write and debug a class once, then reuse it as the basis for new classes, reducing duplication and errors.
+2. Simplicity: It simplifies code maintenance and updates because changes made to the base class automatically propagate to derived classes (unless overridden).
+3. Extensibility: It allows new functionality to be easily added or existing functionality modified by inheriting from existing classes and extending them with new or specialized behaviors.
+4. Hierarchical structure: It organizes classes in a hierarchical manner that reflects real-world relationships, making the program structure more intuitive.
+
+Types of Inheritance:
+
+1. Single Inheritance
+- In single inheritance, a subclass inherits from only one superclass.
+
+class Bird:
+    def fly(self):
+        print("Flies into the sky")
+
+class Sparrow(Bird):
+    def chirp(self):
+        print("Chirp chirp")
+
+# Usage
+sparrow = Sparrow()
+sparrow.fly()  # Inherits from Bird
+sparrow.chirp()  # Defined in Sparrow
+
+2. Multiple Inheritance
+- In multiple inheritance, a subclass inherits from more than one superclass.
+
+class WaterAnimal:
+    def swim(self):
+        print("Swimming in the water")
+
+class FlyingAnimal:
+    def fly(self):
+        print("Flying in the sky")
+
+class Duck(WaterAnimal, FlyingAnimal):  # Inherits from both WaterAnimal and FlyingAnimal
+    def quack(self):
+        print("Quack quack")
+
+# Usage
+duck = Duck()
+duck.swim()
+duck.fly()
+duck.quack()
+
+3. Multilevel Inheritance
+- In multilevel inheritance, a subclass is derived from another subclass, forming a chain.
+
+class Vehicle:
+    def start_engine(self):
+        print("Engine started")
+
+class Car(Vehicle):  # Inherits from Vehicle
+    def drive(self):
+        print("Car driving")
+
+class SportsCar(Car):  # Inherits from Car
+    def accelerate(self):
+        print("Accelerating quickly")
+
+# Usage
+sports_car = SportsCar()
+sports_car.start_engine()  # From Vehicle
+sports_car.drive()         # From Car
+sports_car.accelerate()    # Defined in SportsCar
+
+4. Hierarchical Inheritance
+- In hierarchical inheritance, multiple subclasses inherit from a single superclass.
+
+class Animal:
+    def eat(self):
+        print("Eating")
+
+class Dog(Animal):  # Inherits from Animal
+    def bark(self):
+        print("Bark")
+
+class Cat(Animal):  # Inherits from Animal
+    def meow(self):
+        print("Meow")
+
+# Usage
+dog = Dog()
+dog.eat()  # From Animal
+dog.bark()  # Defined in Dog
+
+cat = Cat()
+cat.eat()  # From Animal
+cat.meow()  # Defined in Cat
+
+5. Hybrid Inheritance
+- Hybrid inheritance is a combination of two or more types of inheritance.
+
+class Person:
+    def speak(self):
+        print("Speaking")
+
+class Employee(Person):  # Single Inheritance
+    def work(self):
+        print("Working")
+
+class Father(Person):  # Single Inheritance
+    def parent(self):
+        print("Parenting")
+
+class WorkingFather(Employee, Father):  # Multiple Inheritance
+    def do_both(self):
+        print("Working and parenting")
+
+# Usage
+wf = WorkingFather()
+wf.speak()    # From Person
+wf.work()     # From Employee
+wf.parent()   # From Father
+wf.do_both()  # Defined in WorkingFather

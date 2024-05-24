@@ -1,0 +1,37 @@
+--PRIMARY KEY--
+
+Uniquely identifies each record in a table.
+
+Primary keys must contain UNIQUE values, and cannot contain NULL values.
+
+A table can have only ONE primary key; and in the table, this primary key can consist of single or multiple columns (fields).
+
+Example:
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (ID)
+);
+
+--add a primary key to a single column--
+ALTER TABLE Employees
+ADD PRIMARY KEY (EmployeeID);
+
+--add a composite primary key--
+ALTER TABLE OrderDetails
+ADD PRIMARY KEY (OrderID, ProductID);
+
+--naming a primary key constraint--
+CREATE TABLE Employees (
+    EmployeeID int NOT NULL,
+    FirstName varchar(255),
+    LastName varchar(255),
+    CONSTRAINT PK_Employees PRIMARY KEY (EmployeeID)
+);
+
+--dropping a primary key constraint--
+ALTER TABLE Employees
+DROP CONSTRAINT PK_Employees;

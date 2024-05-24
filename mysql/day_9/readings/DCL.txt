@@ -1,0 +1,14 @@
+--DCL--
+
+Data Control Language:
+
+Used to control access to the database by securing it. 
+The primary commands in DCL are GRANT and REVOKE.
+
+1. GRANT: This command is used to give users access privileges to the database
+
+GRANT SELECT, INSERT ON database_name TO user_name;
+
+2. REVOKE: This command is used to withdraw access privileges given with the GRANT command.
+
+REVOKE SELECT ON database_name FROM user_name;

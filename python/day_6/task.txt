@@ -1,0 +1,5 @@
+--OOP--
+
+1. create a custom class representing a complex number. Implement special methods like __add__, __sub__, and __str__ to enable arithmetic operations and custom string representation
+2. create a base class called Shape and then create child classes like Circle and Rectangle. Implement methods for calculating area and perimeter, and show how inheritance can be used effectively.
+3. Explore private, public and protected variables. Also explore objectmethod, static method and create a questions yourself regarding these.

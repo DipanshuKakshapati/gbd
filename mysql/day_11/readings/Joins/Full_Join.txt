@@ -1,0 +1,11 @@
+--Full (Outer) Join--
+
+Description: 
+Returns all records when there is a match in either left or right table. 
+If there is no match, the result is NULL on the side that does not have a match.
+
+Example:
+SELECT Employees.Name, Departments.DepartmentName
+FROM Employees
+FULL OUTER JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
+

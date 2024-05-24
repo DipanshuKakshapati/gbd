@@ -1,0 +1,12 @@
+--io.BytesIO--
+
+1. io.BytesIO is similar to StringIO but is used for binary data.
+2. It also provides a file-like interface for byte strings.
+3. This is useful for manipulating binary data in memory, such as image files, audio files, or any other type of binary data stream.
+
+Key characteristics of BytesIO include:
+
+1. Binary data handling: Operates on bytes and byte arrays, making it suitable for binary data processing.
+2. Read and write access: Like StringIO, you can perform read and write operations.
+3. In-memory storage: Data is stored in memory, which allows for fast access and manipulation.
+

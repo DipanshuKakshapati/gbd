@@ -1,0 +1,16 @@
+--Polymorphism--
+
+- a core concept in object-oriented programming that refers to the ability of different objects to respond in a unique way to the same method call.
+- Polymorphism takes advantage of inheritance and method overriding (redefining a method in a subclass) to allow objects of different types to be treated as objects of a common superclass. 
+
+Types of Polymorphism:
+
+1. Compile-Time Polymorphism (Static Binding or Method Overloading): 
+2. Run-Time Polymorphism (Dynamic Binding or Method Overriding): 
+
+Key Concept:
+
+1. Method Overriding
+- This is when a subclass provides a specific implementation of a method that is already provided by one of its parent classes. 
+- This means that a subclass can implement a parent class method based on its requirement.
+

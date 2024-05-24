@@ -1,0 +1,10 @@
+USE Day_9;
+
+CREATE TABLE EMPLOYEE(
+    Id INTEGER PRIMARY KEY,
+    Name VARCHAR(255),
+    DepartmentId VARCHAR(255),
+    Salary INTEGER,
+    Active INTEGER,
+    FOREIGN KEY (DepartmentId) REFERENCES DEPARTMENT(Name)
+);

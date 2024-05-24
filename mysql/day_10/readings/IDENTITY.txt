@@ -1,0 +1,18 @@
+--IDENTITY(1,1)--
+
+
+Property in SQL Server is used to create an auto-incrementing column in a table. 
+It automatically generates unique integer values for the column, starting from a specified seed value and incrementing by a specified increment value.
+
+Syntax:
+IDENTITY(seed, increment)
+
+Parameters:
+- seed: The starting value for the column. The first row inserted into the table will be assigned this value.
+- increment: The value by which the identity column is incremented for each new row.
+
+Example:
+CREATE TABLE ExampleTable (
+    Id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    Name VARCHAR(255)
+);

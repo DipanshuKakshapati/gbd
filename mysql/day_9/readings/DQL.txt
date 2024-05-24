@@ -1,0 +1,23 @@
+--DQL--
+
+Data Query Language
+
+Used for querying data from the database. 
+The primary command in DQL is SELECT.
+
+1. SELECT: This command is used to query data from a database
+
+SELECT Name, Department FROM Employees;
+
+
+2. Where: To filter records according to specific conditions
+
+SELECT Name, Salary FROM Employees WHERE Department = 'HR';
+
+
+3. Joining Tables: Allows joining multiple tables to combine and retrieve data based on related columns between them
+
+SELECT Employees.Name, Departments.DepartmentName
+FROM Employees
+JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
+

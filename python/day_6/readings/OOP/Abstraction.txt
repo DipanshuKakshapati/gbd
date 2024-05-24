@@ -1,0 +1,56 @@
+--Abstraction--
+
+- a fundamental concept that simplifies complex systems by reducing the complexity of user interaction with the system and hiding the detailed implementation. 
+- It is achieved through abstract classes and interfaces which define a template that other classes must follow.
+
+- An abstract class is a class that cannot be instantiated on its own and must be inherited by other classes.
+- It often includes abstract methods, which are methods declared in the abstract class but must be implemented by any subclass.
+- Essentially, an abstract class provides a 'template' for other classes, allowing you to define certain behaviors while implementing others.
+
+Example:
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+    @abstractmethod
+    def start(self):
+        """Start the vehicle"""
+        pass
+
+    @abstractmethod
+    def stop(self):
+        """Stop the vehicle"""
+        pass
+
+class Car(Vehicle):
+    def start(self):
+        print(f"Starting the car {self.make} {self.model}")
+
+    def stop(self):
+        print(f"Stopping the car {self.make} {self.model}")
+
+class Motorcycle(Vehicle):
+    def start(self):
+        print(f"Starting the motorcycle {self.make} {self.model}")
+
+    def stop(self):
+        print(f"Stopping the motorcycle {self.make} {self.model}")
+
+# Usage
+my_car = Car("Toyota", "Corolla")
+my_car.start()  # Outputs: Starting the car Toyota Corolla
+my_car.stop()   # Outputs: Stopping the car Toyota Corolla
+
+my_bike = Motorcycle("Harley Davidson", "Chopper")
+my_bike.start()  # Outputs: Starting the motorcycle Harley Davidson Chopper
+my_bike.stop()   # Outputs: Stopping the motorcycle Harley Davidson Chopper
+
+
+Benefits of Abstraction
+1. Simplifies Complexity: Users of the Vehicle class need not understand how each type of vehicle starts or stops. They just need to know that they can start and stop, abstracting away the details.
+2. Increases Reusability: By using an abstract class, you can define a standard template for all vehicles. Any new vehicle type only needs to implement the abstract methods without the need to redefine or duplicate the logic.
+3. Enhances Flexibility: New vehicle types can be added without affecting existing classes. As long as they adhere to the Vehicle interface, the rest of the code will function correctly.
+4. Improves Maintenance: Changes to common functionality among all subclasses can be made in just the abstract class, instead of each subclass, reducing the chance for error and redundancy.

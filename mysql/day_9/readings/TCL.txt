@@ -1,0 +1,43 @@
+--TCL--
+
+Transaction Control Language:
+
+Used to manage transactions in the database. 
+These commands help ensure that the database remains consistent even in cases of system failures and errors.
+
+
+1. COMMIT: This command is used to save all the changes made during the current transaction.
+
+BEGIN TRANSACTION; -- Start a new transaction
+
+INSERT INTO Employees (Name, Department) VALUES ('John Doe', 'HR');
+UPDATE Employees SET Department = 'Finance' WHERE Name = 'Jane Smith';
+
+COMMIT; -- Saves the changes made in the transaction
+
+2. ROLLBACK: This command is used to undo changes that are made to the database.
+
+BEGIN TRANSACTION;
+
+INSERT INTO Employees (Name, Department) VALUES ('Alice Johnson', 'Marketing');
+DELETE FROM Employees WHERE Name = 'Bob Brown';
+
+ROLLBACK; -- Undoes both the INSERT and DELETE operations
+
+3. SAVEPOINT: This command allows you to identify a point in a transaction to which you can later roll back.
+
+BEGIN TRANSACTION;
+
+INSERT INTO Employees (Name, Department) VALUES ('Charlie Brown', 'Sales');
+SAVEPOINT Savepoint1; -- Set a savepoint here
+
+UPDATE Employees SET Department = 'Tech Support' WHERE Name = 'Charlie Brown';
+ROLLBACK TO Savepoint1; -- Roll back to the savepoint, undoing the update
+
+COMMIT; -- Commit the transaction, which includes only the INSERT operation
+
+
+
+
+
+

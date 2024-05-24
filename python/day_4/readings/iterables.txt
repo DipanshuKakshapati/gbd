@@ -1,0 +1,3 @@
+Iterables
+
+Iterables typically hold data that you want to iterate over one value at a time.

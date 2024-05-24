@@ -1,0 +1,11 @@
+Self Join:
+
+Description: 
+A self join is a regular join but the table joins with itself.
+
+Example:
+SELECT A.Name AS EmployeeName, B.Name AS ManagerName
+FROM Employees A, Employees B
+WHERE A.ManagerID = B.EmployeeID;
+
+This is useful for finding relationships within the same table, such as employees and their managers when both are in the same table.

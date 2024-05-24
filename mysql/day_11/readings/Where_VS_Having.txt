@@ -1,0 +1,48 @@
+--WHERE--
+
+Purpose: 
+The WHERE clause is used to filter records before any groupings are made.
+
+Usage: 
+It filters rows on the basis of a specified condition and is applied before any aggregate functions are processed. 
+This means it can't be used to filter values created by an aggregate function (like SUM, AVG, etc.).
+
+Example: 
+Suppose you have a table called Employees and you want to find all employees who belong to the 'Sales' department.
+
+SELECT *
+FROM Employees
+WHERE Department = 'Sales';
+
+In this example, the WHERE clause filters out employees who are not in the Sales department before the rows are returned.
+
+--Having--
+
+Purpose: 
+The HAVING clause is used to filter groups created by the GROUP BY clause based on a condition specified by an aggregate function.
+
+Usage: 
+It is used after the GROUP BY clause in a query and can filter groups on the basis of conditions involving aggregate functions. 
+This means it's specifically designed to work with group functions.
+
+Example: 
+If you want to find departments that have more than 10 employees, you would use the HAVING clause to filter these groups.
+
+SELECT Department, COUNT(*) AS NumberOfEmployees
+FROM Employees
+GROUP BY Department
+HAVING COUNT(*) > 10;
+
+Here, the GROUP BY clause groups the employees by department, and the HAVING clause filters out the departments having more than 10 employees.
+
+
+Key Differences:
+
+Point of Application: 
+WHERE is used before the data is grouped, and HAVING is used after the data has been grouped.
+
+Filtering: 
+WHERE is used to filter rows, whereas HAVING is used to filter groups.
+
+Compatibility with Aggregate Functions: 
+WHERE cannot use aggregate functions; HAVING is specifically designed to use with aggregate functions.

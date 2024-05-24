@@ -1,0 +1,36 @@
+--CASE--
+
+A control flow function that enables you to execute conditional logic directly in your SQL queries. 
+It's similar to the "if-then-else" statements in procedural programming languages, allowing you to specify conditions to determine which of several possible results should be returned in your query results.
+
+Basic Syntax:
+
+The CASE statement comes in two primary forms:
+
+1. Simple CASE Expression:
+
+This form is used when comparing a single expression to a set of distinct values.
+
+SELECT Name, StatusId,
+    CASE StatusId
+        WHEN 1 THEN 'Active'
+        WHEN 2 THEN 'Inactive'
+        WHEN 3 THEN 'Pending'
+        ELSE 'Unknown'
+    END AS StatusDescription
+FROM Employees;
+
+2. Searched CASE Expression:
+
+This form evaluates a set of Boolean expressions to determine which result to return.
+
+SELECT Name, Salary,
+    CASE 
+        WHEN Salary >= 100000 THEN 'High Earner'
+        WHEN Salary BETWEEN 50000 AND 99999 THEN 'Mid Earner'
+        WHEN Salary < 50000 THEN 'Low Earner'
+        ELSE 'No Salary Information'
+    END AS SalaryCategory
+FROM Employees;
+
+

@@ -1,0 +1,42 @@
+--Data Types in SQL--
+
+The data type of a column defines what value the column can hold: integer, character, money, date and time, binary, and so on.
+
+Each column in a database table is required to have a name and a data type.
+
+
+--Approximate Numerics--
+
+    Length FLOAT,
+    Weight REAL
+
+--Exact Numerics--
+
+    AccountID INT,
+    TotalAmount MONEY,
+
+--Date and Time--
+
+    AppointmentDate DATETIME, -> Stores date and time.
+    ReminderTime TIME -> Stores time of day.
+
+--Character Strings--
+
+    Name VARCHAR(100), -> Stores variable-length character data.
+    Notes TEXT -> Stores large non-Unicode variable-length data
+
+--Unicode Character Strings--
+
+    JapaneseText NVARCHAR(50), -> Stores fixed-length Unicode data.
+    Comments NTEXT -> Stores large Unicode data
+
+--Binary Strings--
+
+    Data BINARY(50), -> Stores fixed-length binary data.
+    FileData VARBINARY(MAX) -> Stores variable-length binary data
+
+--Spatial Data Types--
+
+    GeoData GEOGRAPHY, -> Stores Ellipsoidal data (i.e., GPS latitude and longitude coordinates).
+    PlanData GEOMETRY -> Stores planar data.
+

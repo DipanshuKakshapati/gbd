@@ -1,0 +1,63 @@
+--Stored Procedures--
+
+A powerful feature that allow you to save a set of SQL statements under a given name so that they can be reused and executed multiple times as needed.
+They are stored and executed on the database server.
+This leads to performance improvements by reducing the amount of information sent over the network.
+
+--Key Features of Stored Procedures--
+
+1. Encapsulation: They allow you to encapsulate complex business logic within the database.
+2. Performance: They are compiled once and stored in the executable form, which can improve performance for complex queries.
+3. Security: Execution privileges can be granted on stored procedures without giving access to the underlying tables, enhancing security.
+4. Reduction of Network Traffic: By handling operations at the server side, they reduce network traffic and improve efficiency.
+
+
+--Example 1: Creating a Simple Stored Procedure--
+
+Creating the stored procedure:
+CREATE PROCEDURE GetHighEarningEmployees
+    @SalaryThreshold DECIMAL
+AS
+BEGIN
+    SELECT * FROM employees
+    WHERE salary > @SalaryThreshold;
+END;
+
+Executing the stored procedure:
+EXEC GetHighEarningEmployees @SalaryThreshold = 50000;
+
+
+--Example 2: Stored Procedure with Input and Output Parameters--
+
+Creating the stored procedure:
+CREATE PROCEDURE CountEmployeesInDepartment
+    @DepartmentID INT,
+    @EmployeeCount INT OUTPUT
+AS
+BEGIN
+    SELECT @EmployeeCount = COUNT(*)
+    FROM employees
+    WHERE department_id = @DepartmentID;
+END;
+
+Executing the stored procedure:
+DECLARE @TotalEmployees INT;
+EXEC CountEmployeesInDepartment @DepartmentID = 5, @EmployeeCount = @TotalEmployees OUTPUT;
+SELECT @TotalEmployees AS TotalEmployees;
+
+
+--Example 3: Modifying Data--
+
+Creating the stored procedure:
+CREATE PROCEDURE UpdateSalary
+    @EmployeeID INT,
+    @NewSalary DECIMAL
+AS
+BEGIN
+    UPDATE employees
+    SET salary = @NewSalary
+    WHERE employee_id = @EmployeeID;
+END;
+
+Executing the stored procedure:
+EXEC UpdateSalary @EmployeeID = 1, @NewSalary = 56000;

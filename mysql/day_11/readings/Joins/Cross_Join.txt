@@ -1,0 +1,11 @@
+--Cross Join--
+
+Description: Returns the Cartesian product of the two tables. 
+This means it returns all possible combinations of rows from the two tables.
+
+Example:
+SELECT Employees.Name, Departments.DepartmentName
+FROM Employees
+CROSS JOIN Departments;
+
+This could be useful for combining every employee with every department, regardless of their actual department assignment.

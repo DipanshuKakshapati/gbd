@@ -1,0 +1,6 @@
+--COALESCE--
+
+COALESCE(D.Name, 'No Employee') AS Employee_Name
+
+
+This function returns the first non-null value; if D.Name is NULL (which will be the case if there's no corresponding department), it returns 'No Department'.

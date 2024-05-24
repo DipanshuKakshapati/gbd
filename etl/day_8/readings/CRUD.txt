@@ -1,0 +1,23 @@
+--CRUD--
+
+1. Create:
+
+INSERT INTO products (product_id, name, price, quantity)
+VALUES (101, 'Laptop', 800.00, 10);
+
+2. Read
+
+SELECT * FROM products
+WHERE price > 500;
+
+3. Update
+
+UPDATE products
+SET price = 850.00
+WHERE name = 'Laptop';
+
+4. Delete
+
+DELETE FROM products
+WHERE quantity = 0;
+

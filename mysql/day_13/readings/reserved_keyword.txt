@@ -1,0 +1,17 @@
+--reserved keyword--
+
+
+In SQL, certain words like Order are reserved for specific operations—ORDER BY.
+
+Example:
+
+CREATE TABLE [order](
+    order_no INT,
+    purch_amt REAL,
+    order_date DATE,
+    customer_id INT,
+    salesman_id INT,
+    PRIMARY KEY(order_no),
+    FOREIGN KEY(customer_id) REFERENCES customer(customer_id),
+    FOREIGN KEY(salesman_id) REFERENCES salesman(salesman_id)
+);

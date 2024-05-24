@@ -1,0 +1,5 @@
+EXEC sp_rename 'DEPARTMENT.DepartmentId', 'Id', 'COLUMN';
+
+- EXEC: This keyword is used to execute a stored procedure.
+
+- sp_rename: This is the name of a system stored procedure provided by SQL Server for renaming user-created objects, including tables, columns, and other database objects.

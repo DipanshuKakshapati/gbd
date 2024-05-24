@@ -1,0 +1,10 @@
+--Left (Outer) Join--
+
+Description: 
+Returns all records from the left table, and the matched records from the right table. 
+If there is no match, the result is NULL on the side of the right table.
+
+Example:
+SELECT Employees.Name, Departments.DepartmentName
+FROM Employees
+LEFT JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;

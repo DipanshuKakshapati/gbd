@@ -1,0 +1,10 @@
+--MIN()--
+
+Returns the smallest value of the selected column.
+
+Example:
+
+SELECT MIN(Price) AS SmallestPrice, CategoryID
+FROM Products
+GROUP BY CategoryID;
+

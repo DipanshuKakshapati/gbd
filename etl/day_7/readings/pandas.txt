@@ -1,0 +1,123 @@
+--pandas--
+
+Used for data manipulation and analysis.
+
+Core Data Structures:
+
+1. DataFrame 
+- A two-dimensional, size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns).
+
+df = pd.DataFrame(data={'Column1': [1, 2], 'Column2': [3, 4]})
+
+2. Series 
+- A one-dimensional array-like object containing an array of data and an associated array of data labels, known as its index.
+
+s = pd.Series(data=[1, 2, 3], index=['a', 'b', 'c'])
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Reading and Writing Data
+
+Read CSV: pd.read_csv('filename.csv')
+Write CSV: df.to_csv('filename.csv')
+Read Excel: pd.read_excel('filename.xlsx')
+Write Excel: df.to_excel('filename.xlsx')
+
+Data Viewing/Inspection
+
+View top rows: df.head()
+View bottom rows: df.tail()
+Summary of DataFrame: df.info()
+Summary statistics: df.describe()
+
+Data Selection
+
+Select column: df['column_name']
+Select by position: df.iloc[0] (selects the first row)
+Select by label: df.loc['index_name']
+Boolean indexing: df[df['column_name'] > value]
+
+Data manipulation
+
+Drop values: df.drop('column_name', axis=1)
+Fill missing values: df.fillna(value)
+Pivot tables: pd.pivot_table(df, values='column_name', index='row_name', columns='col_name')
+Group by: df.groupby('column_name').sum()
+
+Mergin/Joining DataFrames
+
+Concatenate vertically: pd.concat([df1, df2])
+Concatenate horizontally: pd.concat([df1, df2], axis=1)
+SQL-style join: pd.merge(df1, df2, on='key_column')
+
+Time Series
+
+Convert to datetime: pd.to_datetime(df['column_name'])
+Set datetime index: df.set_index('datetime_column')
+Resample: df.resample('D').mean()
+
+--melt--
+a versatile tool used to transform a DataFrame from a wide format to a long format.
+
+Parameters of pd.melt()
+- frame: The DataFrame you want to melt.
+- id_vars (optional): A list of variables that will be kept as identifier variables. These are the columns in the DataFrame that you want to remain in the vertical format, essentially used as keys.
+- value_vars (optional): A list of columns that pandas will melt. If this parameter is not specified, all columns not set as id_vars will be melted.
+- var_name (optional): The name to use for the variable column that will be created after melting. If not specified, pandas will use the default name variable.
+- value_name (optional): The name to use for the value column that results from the melting process. If not specified, pandas uses the default name value.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Inspecting and Various Parts of DataFrame
+
+Inspecting a DataFrame is crucial for understanding its structure and content. Here are some common methods:
+
+head(n): Displays the first n rows of the DataFrame. If n is omitted, it defaults to 5.
+tail(n): Shows the last n rows of the DataFrame.
+info(): Provides a concise summary of the DataFrame, including the number of non-null entries and data type of each column.
+describe(): Gives a statistical summary of numerical columns, or, with the argument include='all', it includes all columns.
+shape: Returns a tuple representing the dimensionality of the DataFrame (rows, columns).
+columns: Returns the column labels of the DataFrame.
+dtypes: Returns the data types of each column.
+
+2. Sorting and Subsetting
+
+Sorting and subsetting are powerful tools to organize and extract specific data from a DataFrame.
+
+Sorting:
+# Sorting by a column
+sorted_df = df.sort_values(by='Age', ascending=True)
+print(sorted_df)
+
+# Subsetting columns
+subset_columns = df[['Name', 'Age']]
+print(subset_columns)
+
+# Subsetting rows based on a condition
+subset_rows = df[df['Age'] > 25]
+print(subset_rows)
+
+# Combining subsetting rows and columns
+subset_combined = df.loc[df['Age'] > 25, ['Name', 'City']]
+print(subset_combined)
+
+3. Filtering
+
+# Single condition
+filtered_data = df[df['column'] > value]
+
+# Multiple conditions
+filtered_data = df[(df['column1'] > value1) & (df['column2'] < value2)]  # AND
+filtered_data = df[(df['column1'] > value1) | (df['column2'] < value2)]  # OR
+
+4. Adding New Columns
+
+- From existing data:
+df['new_column'] = df['existing_column1'] + df['existing_column2']
+
+- Constant value:
+df['new_column'] = value
+
+- Using assign method: 
+new_df = df.assign(new_column=df['existing_column'] * factor)
+

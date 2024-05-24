@@ -1,0 +1,16 @@
+--#TempTableName.txt--
+
+The INTO #TempEmployee clause in a SELECT statement is used to create a temporary table and insert the selected rows into this table. 
+Temporary tables are used to store intermediate results and are automatically dropped when the session that created them is closed.
+
+Syntax:
+SELECT column1, column2, ...
+INTO #TempTableName
+FROM source_table
+WHERE conditions;
+
+Key Points
+- Temporary Table Naming: The # symbol indicates that the table is a temporary table. 
+  Temporary tables are stored in the tempdb database and are specific to the session or scope in which they are created.
+- Table Creation: The SELECT INTO statement creates the temporary table on-the-fly, with columns and data types based on the columns in the SELECT list.
+- Data Insertion: The rows returned by the SELECT statement are inserted into the newly created temporary table.

@@ -1,0 +1,12 @@
+Content of file: a_file_to_merge.txt
+I am happy.
+I am great.
+
+Content of file: b_file_to_merge.txt
+I play football.
+I play cricket.
+
+Content of file: c_file_to_merge.txt
+I am eating.
+I am dancing.
+

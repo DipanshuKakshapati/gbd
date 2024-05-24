@@ -1,0 +1,5 @@
+USE Day_9;
+
+SELECT Name, Salary
+FROM EMPLOYEE
+ORDER BY Salary ASC;

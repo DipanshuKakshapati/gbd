@@ -1,0 +1,18 @@
+--NOT NULL--
+
+Enforces a column to NOT accept NULL values.
+
+Example:
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255) NOT NULL,
+    Age int
+);
+
+--SQL NOT NULL on ALTER TABLE--
+
+ALTER TABLE Persons
+ALTER COLUMN Age int NOT NULL;
+

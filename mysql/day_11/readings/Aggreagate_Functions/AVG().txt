@@ -1,0 +1,9 @@
+--AVG()--
+
+returns the average value of a numeric column.
+
+Example:
+
+SELECT AVG(Price) AS AveragePrice, CategoryID
+FROM Products
+GROUP BY CategoryID;

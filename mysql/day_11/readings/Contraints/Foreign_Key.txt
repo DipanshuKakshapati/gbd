@@ -1,0 +1,21 @@
+--FOREIGN KEY--
+
+A field (or collection of fields) in one table, that refers to the PRIMARY KEY in another table.
+
+The table with the foreign key is called the child table, and the table with the primary key is called the referenced or parent table.
+
+Example:
+
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);
+
+--add a foregin key in an existing table--
+
+ALTER TABLE Orders
+ADD FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+

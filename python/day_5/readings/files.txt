@@ -1,0 +1,35 @@
+1) Write 
+- Overwriting: When you open a file in write mode, any existing content in the file is deleted as soon as the file is opened. This means the file starts fresh, and any data written to the file will be the only content.
+- Creating New Files: If the file specified does not exist, Python will create a new file for you when you open it in write mode.
+- Use Case: Use write mode when you want to start with a blank file or completely replace the content of an existing file.
+
+2) Append
+- Adding to Existing Content: When you open a file in append mode, Python does not erase the file before opening it. Instead, it positions the file handle at the end of the file (if there is existing content). Any data written to the file will be added at the end, preserving any existing data.
+- Creating New Files: Like write mode, if the file does not exist, opening a file in append mode will create a new one.
+- Use Case: Append mode is suitable when you need to add more data to an existing file without removing the data that is already there.
+
+3) read
+- Basic Usage: When you open a file in read mode ("r"), Python prepares to read the file from the beginning. If the file does not exist, trying to open it in read mode will result in a FileNotFoundError.
+- Purpose: The read mode is used when you want to extract data from a file without modifying its contents.
+
+a) Reading Methods
+- read(): This method reads the entire content of the file into a single string. If you provide a parameter (e.g., read(10)), it reads up to that many characters from the current position in the file.
+- readline(): This method reads the file line by line, returning one line at a time. Each call to readline() reads from the current position up to and including the next newline character. If the end of the file is reached, it returns an empty string.
+# Open the file in read mode
+with open("example.txt", "r") as file:
+    print("Reading file line by line using readline():")
+    while True:
+        line = file.readline()
+        if not line:  # Check if the line is an empty string, which means end of file
+            break
+        print(line.strip())  # Using strip() to remove the newline character at the end of each line
+
+- readlines(): This method reads all the lines of a file and returns them as a list of strings.
+# Open the file in read mode
+with open("example.txt", "r") as file:
+    # Read all lines into a list
+    lines = file.readlines()
+
+    print("Reading file into a list using readlines():")
+    for line in lines:
+        print(line.strip())  # Each element in the list is a line from the file

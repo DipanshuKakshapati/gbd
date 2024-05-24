@@ -1,0 +1,30 @@
+-- Number date and times --
+
+1. You need to convert or output integers represented by binary, octal, 
+or hexadecimal digits.
+
+2. You have a byte string and you need to unpack it into an integer value.
+Alternatively, you need to convert a large integer back into a byte string.
+
+3. Your code for interacting with the latest web authentication shceme has 
+encountered a singularity and your only solution is to go around it in the complex plane.
+Or maybe you just need to perform some calculations using complex numbers like
+conjugate, exploring real parts and imaginary parts, addition, subtraction, and converting into
+polar form.
+
+4. You need to performa matrix and linear algebra operations such as matrix multiplication,
+finding determinants, solving linear equations, and so on (explore numpy).
+
+5. You want to pick random items out of a sequence or generate random numbers, shuffle them, use seed.
+
+6. You have code that needs to perform simple time conversions, like days to seconds, 
+hours to minutes, and so on.
+
+7. You have a general solution for finding a date for the last occurence of a day of the week. Last Friday, for example.
+
+8. Your application receives temporal data in string format, but you want to convert those
+strings into datetime objects in order to perform non string operations on them.
+
+9. You had a conderence call scheduled for December 21, 2012, at 9:30 a.m. in Chicago.
+At what local time did your friend in Bangalore, India, have to show up to attend?
+

@@ -1,0 +1,133 @@
+--Window Functions--
+
+A powerful feature used to perform calculations across a set of table rows that are somehow related to the current row.
+These functions allow you to operate on a set of rows and return a single value for each row from the underlying query.
+They are used for tasks such as computing running totals, ranking items, and calculating moving averages. 
+
+--How Window Functions Work--
+Window functions operate over a "window" or a set of rows defined by the window specification. 
+This specification determines the start and end of the window relative to the current row.
+
+1. Partitioning: This divides the result set into partitions (groups of rows) based on one or more expressions. The window function is applied to each partition independently.
+2. Ordering: Within each partition, the rows can be ordered. This is important for functions where the order affects the result, such as cumulative totals or row numbers.
+3. Frame specification: This defines which rows in the partition to include relative to the current row (e.g., "rows between 1 preceding and 1 following").
+
+Example:
+
+SELECT
+    department,
+    date,
+    sales,
+
+    -- Calculate the running total of sales within each department
+    SUM(sales) OVER (PARTITION BY department ORDER BY date) AS running_total,
+
+    -- Calculate the moving average of sales including the current and two preceding rows within each department
+    AVG(sales) OVER (PARTITION BY department ORDER BY date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS moving_avg
+    
+FROM sales_data;
+
+--Common Window Functions--
+1. ROW_NUMBER(): Assigns a unique sequential integer to rows within a partition of a result set, starting at 1 for the first row in each partition.
+2. RANK(): Assigns a rank to each row within a partition, with a gap in the ranks for ties.
+3. DENSE_RANK(): Similar to RANK but without gaps in the ranks for ties.
+4. SUM(), AVG(), MIN(), MAX(): Compute the sum, average, minimum, and maximum, respectively, across a defined window.
+5. LEAD(), LAG(): Access data in subsequent rows (LEAD) or previous rows (LAG) without needing a self-join.
+
+Example:
+
+1. Row Numbering:
+
+SELECT
+    name,
+    department,
+    salary,
+    ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC) AS row_number
+FROM employees;
+
+This query assigns a row number to each employee within their department based on their salary in descending order.
+
+2. Running Total:
+
+SELECT
+    date,
+    amount,
+    SUM(amount) OVER (ORDER BY date) AS running_total
+FROM transactions;
+
+This provides a running total of amounts over time, ordered by date.
+
+3. Using LAG to Compare Rows:
+
+SELECT
+    date,
+    sales,
+    LAG(sales, 1) OVER (ORDER BY date) AS previous_day_sales
+FROM daily_sales;
+
+This query shows sales for each day alongside sales from the previous day for easy comparison.
+
+4. LEAD():
+
+SELECT
+    date,
+    sales,
+    LEAD(sales, 1) OVER (ORDER BY date) AS next_day_sales
+FROM daily_sales;
+
+This query will show the sales for each day and the sales for the following day, allowing you to see day-to-day changes directly.
+
+5. Calculate Moving average:
+
+SELECT
+    date,
+    sales,
+    AVG(sales) OVER (ORDER BY date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS moving_avg
+FROM daily_sales;
+
+This computes a moving average of sales, considering the current row and the two preceding rows.
+
+6. Rank():
+
+SELECT
+    department,
+    name,
+    salary,
+    RANK() OVER (PARTITION BY department ORDER BY salary DESC) AS salary_rank
+FROM employees;
+
+This will rank employees by salary within each department. If two employees have the same salary, they will receive the same rank, and the next rank number will be skipped.
+
+7. DENSE_RANK():
+
+SELECT
+    department,
+    name,
+    salary,
+    DENSE_RANK() OVER (PARTITION BY department ORDER BY salary DESC) AS salary_dense_rank
+FROM employees;
+
+In this scenario, employees within the same department with the same salary will have the same rank, and subsequent ranks will continue without gaps.
+
+8. MIN():
+
+SELECT
+    department,
+    name,
+    salary,
+    MIN(salary) OVER (PARTITION BY department) AS min_salary
+FROM employees;
+
+This will show each employee's salary along with the minimum salary in their department.
+
+9. MAX():
+
+SELECT
+    department,
+    name,
+    salary,
+    MAX(salary) OVER (PARTITION BY department) AS max_salary
+FROM employees;
+
+This query provides the maximum salary for each department alongside each employee's salary.
+

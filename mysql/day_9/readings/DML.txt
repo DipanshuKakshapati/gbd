@@ -1,0 +1,93 @@
+--DML--
+
+Data Manipulation Language:
+
+Deals with the manipulation of data itself within the database. 
+Unlike DDL, which focuses on the structure of the database, DML focuses on the content of the database. 
+
+1. SELECT: Retrieves data from the database.
+
+Retrieving data from the Employees table
+SELECT * FROM Employees;
+
+2. INSERT: Adds new records to a table.
+
+Adding a new record to the Employees table
+INSERT INTO Employees (ID, Name, Age, Department)
+VALUES (2, 'Jane Smith', 25, 'Marketing');
+
+3. UPDATE: Modifies existing records in a table.
+
+Modifying an existing record in the Employees table
+UPDATE Employees
+SET Age = 31
+WHERE ID = 1;
+
+4. DELETE: Removes records from a table.
+
+Removing a record from the Employees table
+DELETE FROM Employees
+WHERE ID = 2;
+
+5. WHERE: filter records
+
+SELECT FirstName, LastName, Age
+FROM Employees
+WHERE Department = 'HR';
+
+SELECT FirstName, LastName, Age
+FROM Employees
+WHERE Age > 35;
+
+SELECT FirstName, LastName, Age
+FROM Employees
+WHERE Department = 'HR' AND Age > 30;
+
+SELECT FirstName, LastName, Age
+FROM Employees
+WHERE Department = 'HR' OR Age > 35;
+
+SELECT FirstName, LastName, Age
+FROM Employees
+WHERE Department IN ('HR', 'IT');
+
+SELECT FirstName, LastName, Age
+FROM Employees
+WHERE FirstName LIKE 'J%';
+
+SELECT FirstName, LastName, Age
+FROM Employees
+WHERE Age BETWEEN 30 AND 40;
+
+6. GROUP BY: Arrange identical data into groups.
+
+SELECT department_id, AVG(salary) AS average_salary
+FROM employees
+GROUP BY department_id;
+
+7. INNER JOIN: Returns records that have matching values in both tables.
+
+SELECT employees.name, departments.department_name
+FROM employees
+INNER JOIN departments ON employees.department_id = departments.department_id;
+
+8. LEFT JOIN: Returns all records from the left table, and the matched records from the right table. 
+If there is no match, the result is NULL on the side of the right table.
+
+SELECT employees.name, departments.department_name
+FROM employees
+LEFT JOIN departments ON employees.department_id = departments.department_id;
+
+9. RIGHT JOIN: Returns all records from the right table, and the matched records from the left table. 
+If there is no match, the result is NULL on the side of the left table.
+
+SELECT employees.name, departments.department_name
+FROM employees
+RIGHT JOIN departments ON employees.department_id = departments.department_id;
+
+10. FULL OUTER JOIN: Combines the results of both LEFT and RIGHT joins. It returns all records when there is a match in either the left or right table. 
+If there is no match, the result is NULL on the side of the table without a match.
+
+SELECT employees.name, departments.department_name
+FROM employees
+FULL OUTER JOIN departments ON employees.department_id = departments.department_id;

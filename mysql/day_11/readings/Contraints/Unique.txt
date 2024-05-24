@@ -1,0 +1,31 @@
+--UNIQUE--
+
+Ensures that all values in a column are different.
+
+Both the UNIQUE and PRIMARY KEY constraints provide a guarantee for uniqueness for a column or set of columns.
+
+A PRIMARY KEY constraint automatically has a UNIQUE constraint.
+
+However, you can have many UNIQUE constraints per table, but only one PRIMARY KEY constraint per table.
+
+Example:
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    UNIQUE (ID, FirstName)
+);
+
+
+--Add a Unique Constraint to Multiple Columns:--
+
+ALTER TABLE Reservations
+ADD CONSTRAINT UQ_Reservations_RoomID_TimeSlot UNIQUE (RoomID, TimeSlot);
+
+--Dropping a Unique Constraint--
+
+ALTER TABLE Employees
+DROP CONSTRAINT UQ_Employees_Email;
+

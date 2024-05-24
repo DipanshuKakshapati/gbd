@@ -1,0 +1,9 @@
+--Max()--
+
+Returns the largest value of the selected column.
+
+Example:
+
+SELECT MAX(Price) AS SmallestPrice, CategoryID
+FROM Products
+GROUP BY CategoryID;

@@ -1,0 +1,34 @@
+--CTE--
+
+Common Table Expression (CTE)
+1. Scope: A CTE is temporary and only exists during the execution of the query in which it is defined. 
+          It disappears once the query is completed.
+2. Usage: CTEs are used to simplify complex queries, particularly those that need to reference the same subquery multiple times. 
+          They are also helpful in recursive queries, such as when dealing with hierarchical or tree-structured data.
+3. Performance: The SQL engine does not store the result of a CTE; therefore, if a CTE is referenced multiple times in the query, 
+                it might be re-executed each time leading to potential performance issues.
+4. Definition: CTEs are defined using the WITH clause followed by the CTE name, and then the query. 
+               The CTE can then be used in a SELECT, INSERT, UPDATE, or DELETE statement.
+
+
+--VIEW--
+
+View
+1. Scope: A view is a virtual table based on the result-set of an SQL statement. 
+          It exists until it is explicitly dropped using the DROP VIEW statement.
+2. Usage: Views are used to encapsulate complex queries, provide a security mechanism to restrict access to the underlying table columns, 
+          and can present a different representation of the data stored in the database.
+3. Performance: Views can sometimes improve performance if they are indexed (materialized views). 
+                Regular views are not stored on disk, so they are re-executed every time they are called, which can be a performance hit unless the database system caches the results.
+4. Definition: Views are created using the CREATE VIEW statement, and they persist in the database schema. 
+               Once created, they can be used just like tables in SQL queries.
+
+
+--Key Differences--
+
+1. Persistence: CTEs are not stored on the database server and are only available during the execution of the query that defines them, 
+                whereas views are stored and need to be explicitly dropped.
+2. Recursive Queries: CTEs can be defined recursively, which is useful for queries that need to refer to themselves, 
+                      such as organizational hierarchies or tree structures. Views cannot be recursive.
+3. Performance Considerations: Multiple uses of the same CTE within a query can lead to the CTE being recalculated, potentially impacting performance negatively. 
+                               Views, especially materialized ones, can potentially use indexes to improve performance, but regular views might suffer from similar issues if not cached.

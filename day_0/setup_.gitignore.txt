@@ -1,0 +1,3 @@
+1. To create a .gitignore file: pip freeze > .gitignore
+2. To ignore file types by their file type: *.txt -> ignore all files of txt format
+3. To ignore specific file name like (test.md): *test.md -> ignore file named test.md

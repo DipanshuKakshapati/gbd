@@ -1,0 +1,26 @@
+1. __add__(self, other)
+- Purpose: Customizes the behavior of the addition operator (+) for instances of the class.
+
+Parameters:
+- self: The instance on the left side of the + operator.
+- other: The instance on the right side of the + operator.
+- Returns: Should return a new object that is the result of adding self and other.
+- Usage: When you use the + operator between two instances of a class that has an __add__ method, Python automatically calls this method.
+
+2. __sub__(self, other)
+- Purpose: Customizes the behavior of the subtraction operator (-) for instances of the class.
+
+Parameters:
+- self: The instance on the left side of the - operator.
+- other: The instance on the right side of the - operator.
+- Returns: Should return a new object that is the result of subtracting other from self.
+- Usage: When you use the - operator between two instances of a class that has an __sub__ method, Python automatically invokes this method.
+
+3. __str__(self)
+- Purpose: Customizes the string representation of instances of the class, which is used when you print the object or convert it to a string.
+
+Parameters:
+- self: The instance for which the string representation is being created.
+- Returns: Should return a string representing the object.
+- Usage: Automatically called by built-in functions and when objects are used in string contexts (e.g., print()).
+

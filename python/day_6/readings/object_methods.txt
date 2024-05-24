@@ -1,0 +1,128 @@
+--Object Methods--
+
+- Object methods are the most common type of methods in object-oriented languages. 
+- They operate on instances of a class, using the instance itself to manipulate the instance's data. 
+- This is achieved through the use of the self parameter in Python, which refers to the instance on which the method is called. 
+
+Here's how object methods work and why they are useful:
+- Access to Instance Attributes: Object methods can access and modify the state of the object (instance) they belong to.
+- Flexibility: Each instance of a class can maintain its state independently, which allows for the behavior of objects to differ from each other.
+
+Example:
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def speak(self, sound):
+        return f"{self.name} says {sound}"
+
+# Usage
+my_dog = Dog("Rover", 5)
+print(my_dog.speak("woof"))  # Output: Rover says woof
+
+
+--Static Methods--
+
+- Static methods, on the other hand, don't operate on instances of the class. 
+- Instead, they are relevant to the class itself. 
+- Static methods are marked with the @staticmethod decorator and do not take a self or cls parameter. 
+- They can't modify object or class state and are used mainly for utility functions or operations that don't require access to the attributes of an instance or the class.
+
+Utility Functions: They are used for functionality that doesn't require access to an instance's attributes or any class-level attributes.
+Namespacing: They group functions that have some logical connection with a class to the class itself.
+
+Example:
+class MathUtility:
+    @staticmethod
+    def add(x, y):
+        return x + y
+
+    @staticmethod
+    def subtract(x, y):
+        return x - y
+
+# Usage
+print(MathUtility.add(5, 3))  # Output: 8
+print(MathUtility.subtract(10, 7))  # Output: 3
+
+Be mindful about::
+- If you remove the @staticmethod decorator from a method in a Python class and don't replace it with another decorator (like @classmethod or @instancemethod), the method will be treated as a regular instance method. 
+
+Changes in Method Behavior Without @staticmethod
+1. Requires self Parameter: Without @staticmethod, the method will expect the first parameter to be self, which is a reference to the instance of the class through which the method is called. This is the default behavior for methods in Python classes.
+2. Access to Instance Attributes: Because the method now receives the self parameter, it can access and modify instance attributes, which it could not do as a static method.
+3. Method Invocation: The method can no longer be called directly on the class itself without an instance. You must create an instance of the class to call the method.
+
+With @staticmethod
+class FibonacciChecker:
+    @staticmethod
+    def is_fibonacci(num):
+        if num < 0:
+            return False
+        x, y = 0, 1
+        while y < num:
+            x, y = y, x + y
+        return num == y or num == 0
+
+# Can call it directly on the class
+print(FibonacciChecker.is_fibonacci(13))  # True
+
+Without @staticmethod
+class FibonacciChecker:
+    def is_fibonacci(self, num):  # Note the 'self' parameter is now required
+        if num < 0:
+            return False
+        x, y = 0, 1
+        while y < num:
+            x, y = y, x + y
+        return num == y or num == 0
+
+# Now must create an instance to call it
+checker = FibonacciChecker()
+print(checker.is_fibonacci(13))  # True
+
+
+--Why @staticmethods--
+
+- static methods in a class can often be functionally equivalent to standalone functions in a module, as neither requires an instance of a class to operate.
+
+1. Logical Grouping
+- Static methods are often used when a method is logically associated with a class but does not require access to any instance-specific data. 
+- Keeping such methods within the class helps to maintain a logical structure in the code. 
+- This organization can make the code easier to read and manage, as all functionalities related to a concept are encapsulated within one class.
+
+2. Namespace Management
+- Static methods help avoid namespace pollution by encapsulating functions within the class namespace. 
+- This can be particularly useful in larger systems where the likelihood of name conflicts increases. 
+- For instance, multiple classes might define a static method called calculate without interfering with each other because each calculate method is contained within its respective class namespace.
+
+3. Subclassing and Override
+- In some cases, static methods in a class can be overridden by subclasses. 
+- This is a way to modify or extend the behavior of static methods when inherited by a subclass. 
+- Although static methods do not operate on class or instance data, having them in a class structure allows them to participate in the inheritance hierarchy, which is not possible with standalone functions.
+
+4. Design Consistency
+- In object-oriented design, keeping related operations within a class—even those operations that do not interact with class or instance data—can make the system design more consistent. 
+- Users of your class can expect to find all related functionalities in one place, whether they operate on instance data or not.
+
+5. Dependency and Mocking in Testing
+- Static methods in classes can be easier to mock or stub out in unit tests, especially when the classes are part of larger frameworks or systems. 
+- It can be more straightforward to mock a class and its static methods than to mock a standalone function, depending on the testing tools and frameworks being used.
+
+Example:
+class MathOperations:
+    def __init__(self, multiplier):
+        self.multiplier = multiplier
+
+    def multiply(self, data):
+        return data * self.multiplier
+
+    @staticmethod
+    def add(x, y):
+        return x + y
+
+# Usage
+operation = MathOperations(5)
+print(operation.multiply(10))  # 50
+print(MathOperations.add(5, 3))  # 8

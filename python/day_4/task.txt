@@ -1,0 +1,16 @@
+Iterators and Generators
+
+1. Explore iterators, iterables, and iteration. You need to process items in an iterable, but for whatever reaosn, you can't or don't want to use a for loop.
+
+2. Create a custom iterator that iterates through a list of numbers and retursn the squares of each numeber when iterated.
+
+3. Write a generator function that yields the Fibonacci sequence up to a specifiec limit. Then use this generator to display the first N Fibonacci numbers.
+
+4. Create a custom iterable class that generates a sequence of prime numbers. The class should implement both the __iter__ and __next__ methods.
+
+5. Filter a list of numbers using a generator expression, create a generator expression to yield only the even numebrs form the list.
+
+Research:
+
+1. Iterators vs generators
+2. Lazy Evaluation in the context of generators and memory efficiency of generators.

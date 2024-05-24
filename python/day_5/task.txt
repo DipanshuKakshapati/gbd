@@ -1,0 +1,10 @@
+--file and IO--
+
+1. write a Python program that takes user input and appends it to a text file. Also write a program that
+overwrites the existing content of a file with new data.
+
+2. You want to feed a text or binary string to code that’s been written to operate on file- like objects instead. ( files in memory)
+
+3. create a program that can merge multiple text files into one file and another program to split a large file into smaller files based on a specified file size or line count.
+
+4. write a program that compresses a file using a compression algorithm (e.g., zlib) and then another program to decompress it.

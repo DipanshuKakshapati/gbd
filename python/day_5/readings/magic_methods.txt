@@ -1,0 +1,22 @@
+--magic_methods--
+
+1. In Python, "magic methods" are special methods which have double underscores at the beginning and the end of their names
+2. They are also known as "dunder" methods.
+3. These methods are not meant to be directly by us, but instead we can implement and customize our objects in Pythonic ways.
+4. Magic methods are mainly used to override or extend the default behavior of Python's built-in operations.
+
+
+Some commonly used magic keywords:
+
+1. __init__(self, ...)
+- Used for initializing a new instance/object of a class.
+- It is called right after a new instance/object of a class is created, allowing the class to initialize attributes.
+
+2. __iter__(self)
+- Returns an iterator object, which is typically the object itself.
+- Here, a class can be used as an iterable, allowing its instances/objects to be used in loops other contexts of iterations.
+
+3. __next__(self)
+- Returns the next item in the sequence. 
+- On reaching the end, it raises an exception "StopIteration"
+- It allows Python to get the next item from the iterator, and it is automatically called by the built-in function next()
