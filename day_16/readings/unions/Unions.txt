@@ -1,0 +1,26 @@
+--UNION--
+
+the UNION operator is used to combine the result sets of two or more SELECT queries into a single result set. 
+Each SELECT statement within the UNION must have the same number of columns in the result sets with similar data types. 
+The columns in each SELECT statement must also be in the same order.
+
+Syntax:
+
+SELECT column1, column2, ...
+FROM table1
+UNION
+SELECT column1, column2, ...
+FROM table2;
+
+
+--UNION ALL--
+
+If the tables have overlapping customers and you want to include duplicates
+
+Syntax:
+
+SELECT column1, column2, ...
+FROM table1
+UNION ALL
+SELECT column1, column2, ...
+FROM table2;

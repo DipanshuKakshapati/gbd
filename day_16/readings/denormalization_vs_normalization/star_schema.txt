@@ -1,0 +1,29 @@
+--Star Schema--
+
+A type of database schema that is used to organize data into fact tables and dimension tables. 
+It is called a star schema because the diagram of tables resembles a star, with the fact table at the center and the dimension tables radiating outwards.
+
+Components:
+
+1. Fact Table: Contains the quantitative data for analysis (e.g., sales revenue, number of units sold). It has foreign keys that reference dimension tables.
+2. Dimension Tables: Contain descriptive attributes related to the facts (e.g., time, product, customer). These tables are typically denormalized, containing redundant data to simplify and speed up queries.
+
+Advantages:
+
+1. Simpler Queries: Easier to write and understand, as the relationships between tables are straightforward.
+2. Faster Query Performance: Joins are simpler and faster because each dimension table is directly linked to the fact table.
+
+Example:
+
+Fact Table: Sales
+- SaleID
+- ProductID (foreign key to Product table)
+- CustomerID (foreign key to Customer table)
+- DateID (foreign key to Date table)
+- Quantity
+- Revenue
+
+Dimension Tables:
+- Product: ProductID, ProductName, Category
+- Customer: CustomerID, CustomerName, Region
+- Date: DateID, Date, Month, Year

@@ -1,0 +1,17 @@
+--OLTP (Online Transactional Processing)--
+
+Designed to manage transactional data, which involve routine transactions of an organization. 
+These systems are optimized for handling a large number of short online transactions.
+
+Key Characteristics:
+
+1. Real-time Processing: Transactions are processed in real-time, ensuring that the data is always up-to-date.
+2. Data Integrity: High emphasis on maintaining data accuracy and integrity, usually enforced through ACID (Atomicity, Consistency, Isolation, Durability) properties.
+3. High Volume: Capable of processing a large number of transactions per second.
+4. Short Transactions: Each transaction is typically very short in duration.
+5. Normalization: Database design often involves normalized schemas to reduce redundancy and ensure consistency.
+6. Examples: Banking systems, online booking systems, order entry applications, and retail checkout systems.
+
+Usage:
+
+OLTP systems are used in environments where it is crucial to perform and record numerous transactions quickly and accurately, such as retail, banking, and e-commerce.

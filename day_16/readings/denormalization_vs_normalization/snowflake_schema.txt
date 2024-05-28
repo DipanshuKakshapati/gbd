@@ -1,0 +1,36 @@
+--Snowflake Schema--
+
+A more normalized form of the star schema. In a snowflake schema, dimension tables are normalized into multiple related tables. This creates a more complex structure resembling a snowflake.
+
+Components:
+
+1. Fact Table: Same as in the star schema, containing quantitative data.
+2. Dimension Tables: Dimension tables are normalized into multiple related tables, which reduces data redundancy.
+
+Advantages:
+
+1. Reduced Data Redundancy: Normalizing dimension tables reduces redundancy and can save storage space.
+2. More Flexible Data Modeling: Better supports complex relationships between data points.
+
+Disadvantages:
+
+1. More Complex Queries: Queries can become more complex and may require more joins, potentially impacting performance.
+2. Slower Query Performance: More joins can slow down query performance compared to the star schema.
+
+Example:
+
+Fact Table: Sales
+- SaleID
+- ProductID (foreign key to Product table)
+- CustomerID (foreign key to Customer table)
+- DateID (foreign key to Date table)
+- Quantity
+- Revenue
+
+Dimension Tables:
+- Product: ProductID, ProductName, CategoryID (foreign key to Category table)
+- Category: CategoryID, CategoryName
+- Customer: CustomerID, CustomerName, RegionID (foreign key to Region table)
+- Region: RegionID, RegionName
+- Date: DateID, Date, MonthID (foreign key to Month table)
+- Month: MonthID, Month, Year

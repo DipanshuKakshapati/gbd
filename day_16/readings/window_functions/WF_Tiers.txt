@@ -1,0 +1,20 @@
+--Tiers--
+
+Tiers involve categorizing rows into different levels or groups based on their values. 
+This is often done using the NTILE function as well.
+
+--NTILE--
+
+The NTILE function can create custom groupings, such as deciles, quintiles, or any other tier system.
+
+Example:
+
+SELECT 
+    value,
+    NTILE(10) OVER (ORDER BY value) AS decile -- for 10 tiers
+FROM 
+    your_table;
+
+In this example, the data is divided into 10 groups (deciles). 
+Each row is assigned a number from 1 to 10, representing its tier.
+

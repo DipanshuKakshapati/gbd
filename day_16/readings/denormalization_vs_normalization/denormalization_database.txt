@@ -1,0 +1,17 @@
+--Denormalization--
+
+Purpose:
+
+1. Improve Query Performance: Denormalization aims to simplify and speed up read-heavy operations by reducing the number of joins required to retrieve related data.
+2. Simplify Queries: By combining related data into fewer tables, queries become simpler and faster, which is especially beneficial for analytical operations.
+
+Process:
+
+1. Combining Tables: Data from related tables is combined into larger, more comprehensive tables. This often involves including redundant data.
+2. Star Schema and Snowflake Schema: These are common denormalization strategies used in OLAP systems to improve performance and simplify data analysis.
+
+Characteristics:
+
+1. Simplified Queries: Queries are simpler and faster because they require fewer joins.
+2. Increased Redundancy: Data redundancy is introduced, which can lead to increased storage requirements.
+3. Update Complexity: Updates can be more complex and error-prone because redundant data must be updated in multiple places.

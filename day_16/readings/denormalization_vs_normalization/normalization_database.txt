@@ -1,0 +1,127 @@
+--Normalization in Databases--
+
+Process used to organize a database into tables and columns. 
+The main goal is to reduce data redundancy and improve data integrity. 
+This process involves dividing a database into two or more tables and defining relationships between them. 
+The process of normalization usually involves several steps, known as normal forms, each with specific rules and requirements.
+
+--Steps of Normalization--
+
+1. First Normal Form (1NF):
+
+- Ensure that the table is a valid relational table by making sure that:
+- All columns contain atomic (indivisible) values.
+- Each column contains values of a single type.
+- Each column has a unique name.
+- The order in which data is stored does not matter.
+
+Example:
+
+Unnormalized Table:
+| OrderID | Customer | Items           |
+|---------|----------|-----------------|
+| 1       | Alice    | Pen, Pencil     |
+| 2       | Bob      | Notebook, Eraser|
+
+1NF Table:
+| OrderID | Customer | Item     |
+|---------|----------|----------|
+| 1       | Alice    | Pen      |
+| 1       | Alice    | Pencil   |
+| 2       | Bob      | Notebook |
+| 2       | Bob      | Eraser   |
+
+
+2. Second Normal Form (2NF):
+
+- Ensure the table is in 1NF.
+- Remove subsets of data that apply to multiple rows of a table and place them in separate tables.
+- Create relationships between these new tables and their predecessors through the use of foreign keys.
+
+Example:
+
+1NF Table:
+| OrderID | CustomerID | CustomerName | Item     |
+|---------|------------|--------------|----------|
+| 1       | 1          | Alice        | Pen      |
+| 1       | 1          | Alice        | Pencil   |
+| 2       | 2          | Bob          | Notebook |
+| 2       | 2          | Bob          | Eraser   |
+
+2NF Tables:
+Customers Table:
+| CustomerID | CustomerName |
+|------------|--------------|
+| 1          | Alice        |
+| 2          | Bob          |
+
+Orders Table:
+| OrderID | CustomerID |
+|---------|------------|
+| 1       | 1          |
+| 2       | 2          |
+
+OrderItems Table:
+| OrderID | Item     |
+|---------|----------|
+| 1       | Pen      |
+| 1       | Pencil   |
+| 2       | Notebook |
+| 2       | Eraser   |
+
+
+3. Third Normal Form (3NF):
+
+- Ensure the table is in 2NF.
+- Remove columns that are not dependent on the primary key. In other words, eliminate transitive dependency.
+
+Example:
+
+2NF Table:
+| OrderID | CustomerID | CustomerName | ItemID | ItemName | ItemPrice |
+|---------|------------|--------------|--------|----------|-----------|
+
+3NF Tables:
+Customers Table:
+| CustomerID | CustomerName |
+|------------|--------------|
+| 1          | Alice        |
+| 2          | Bob          |
+
+Orders Table:
+| OrderID | CustomerID |
+|---------|------------|
+| 1       | 1          |
+| 2       | 2          |
+
+OrderItems Table:
+| OrderID | ItemID |
+|---------|--------|
+| 1       | 1      |
+| 1       | 2      |
+| 2       | 3      |
+| 2       | 4      |
+
+Items Table:
+| ItemID | ItemName | ItemPrice |
+|--------|----------|-----------|
+| 1      | Pen      | 1.00      |
+| 2      | Pencil   | 0.50      |
+| 3      | Notebook | 2.00      |
+| 4      | Eraser   | 0.75      |
+
+
+
+--Benefits of Normalization--
+ 
+1. Eliminates Redundancy: Reduces data duplication and ensures data is stored logically.
+2. Improves Data Integrity: Enhances the consistency and accuracy of data.
+3. Simplifies Queries: Makes it easier to write complex queries without the risk of anomalies.
+4. Facilitates Maintenance: Easier to update and maintain the database.
+
+
+--Drawbacks of Normalization--
+
+1. Complexity: Can make database design and maintenance more complex.
+2. Performance: May require more joins, which can affect performance for certain queries.
+3. Design Overhead: Initial design process can be time-consuming and requires thorough understanding of the data.

@@ -1,0 +1,17 @@
+--OLAP (Online Analytical Processing)--
+
+Designed for analyzing and querying large volumes of data. 
+These systems are optimized for complex queries and data analysis rather than processing transactions.
+
+Key Characteristics:
+
+1. Data Warehousing: OLAP systems often use data from data warehouses, where data is consolidated from various sources.
+2. Complex Queries: Designed to handle complex queries and ad hoc analysis, which can involve large datasets and sophisticated calculations.
+3. Data Summarization: Often involves aggregated and summarized data, allowing for multi-dimensional analysis.
+4. Low Transaction Volume: Not designed for a high volume of transactional updates, but rather for read-heavy operations.
+5. Denormalization: Schemas are typically denormalized (e.g., star schema, snowflake schema) to improve query performance.
+6. Examples: Business reporting, data mining, market research analysis, and financial forecasting.
+
+Usage:
+
+OLAP systems are used in scenarios where it is important to analyze large amounts of historical data to support decision-making, strategic planning, and data-driven insights, such as business intelligence and reporting.

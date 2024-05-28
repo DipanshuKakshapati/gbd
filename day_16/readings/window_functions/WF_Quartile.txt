@@ -1,0 +1,21 @@
+--Quartile--
+
+Quartiles divide a data set into four equal parts. 
+The first quartile (Q1) is the median of the lower half of the data.
+The second quartile (Q2) is the median of the data set.
+The third quartile (Q3) is the median of the upper half of the data.
+
+--NTILE--
+
+The NTILE function distributes the rows in an ordered partition into a specified number of groups, and assigns a number to each row indicating its group. 
+This can be used to calculate quartiles.
+
+Example:
+
+SELECT 
+    value,
+    NTILE(4) OVER (ORDER BY value) AS quartile
+FROM 
+    your_table;
+
+In this example, the data is divided into four groups, with each group representing one quartile.
